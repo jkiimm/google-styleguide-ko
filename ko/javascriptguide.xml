@@ -131,7 +131,7 @@
             </CODE_SNIPPET>
 
             <p>
-              1분의 초 갯수는 절대로 변하지 않습니다. 이것은 상수 값입니다.
+              1분의 초는 절대로 변하지 않습니다. 이것은 상수 값입니다.
               <code>ALL_CAPS</code>도 <code>@const</code>를 의미하므로
               상수는 덮어 씌워질 수 없습니다.
             </p>
@@ -171,7 +171,7 @@
       </SUMMARY>
       <BODY>
         <p>암시적인 삽입에 의존하는 것은 감지하기 어려운 디버그 문제를 발생시킬 수 있습니다. 
-          하지 마세요. 당신은 이 행동을 하는 것 보다 낫습니다.</p>
+          이렇게 하지 마세요. 당신은 저런 짓을 하진 않을겁니다.</p>
         <p>누락된 세미콜론이 있는 특히 위험한 곳들:</p>
         <BAD_CODE_SNIPPET>
           // 1.
@@ -204,70 +204,66 @@
             <li>JavaScript 오류 - 두번째 함수가 42를 반환하는 첫번째 함수의
               매개변수로 들어가 첫번째 함수가 호출되고, 
               숫자 42는 "called" 오류를 발생시킬 것입니다.</li>
-            <li>You will most likely get a 'no such property in undefined'
-              error at runtime as it tries to call
-              <code>x[ffVersion, ieVersion][isIE]()</code>.</li>
-            <li><code>die</code> is always called since the array minus 1 is
-              <code>NaN</code> which is never equal to anything (not even if
-              <code>resultOfOperation()</code> returns <code>NaN</code>) and
-              <code>THINGS_TO_EAT</code> gets assigned the result of
-              <code>die()</code>.</li>
+            <li>당신은 런타임에 거의 'no such property in undefined'와 같은
+              에러를 보게 될 것입니다. 왜냐하면 
+              <code>x[ffVersion, ieVersion][isIE]()</code>를 호출하려고 했기 때문입니다.</li>
+            <li><code>die</code>는 항상 배열에서 1을 마이너스 한 후에 호출되는데,
+              마이너스의 결과 값은 무엇과도 절대로 일치 하지 않는 NaN이고(<code>resultOfOperation()</code>가 <code>NaN</code>을 반환하지 않을지라도),
+              <code>THINGS_TO_EAT</code>은 <code>die()</code>의 결과값으로 할당됩니다.</li>
           </ol>
         </SUBSECTION>
-        <SUBSECTION title="Why?">
-          <p>JavaScript requires statements to end with a semicolon, except when
-            it thinks it can safely infer their existence. In each of these
-            examples, a function declaration or object or array literal is used
-            inside a statement. The closing brackets are not enough to signal
-            the end of the statement. Javascript never ends a statement if the
-            next token is an infix or bracket operator.</p>
-          <p>This has really surprised people, so make sure your assignments end
-            with semicolons.</p>
+        <SUBSECTION title="왜 그런가요?">
+          <p>JavaScript는 안전하다고 추정할 수 있을 때를 제외하고는
+            세미콜론으로 끝나는 구문을 필요로 합니다. 이 예제들에서는,
+            각 구문안에서 함수 선언이나 객체 또는 배열 리터럴이 사용됩니다.
+            닫힌 괄호는 구문의 끝을 알리기에는 충분하지 않습니다.
+            JavaScript는 다음 토큰이 이항 또는 괄호 연산자인 경우에는
+            절대로 구문을 끝내지 않습니다.</p>
+          <p>이러한 특성은 사람들은 정말로 놀라게 했기 때문에, 반드시 할당 구문을
+            세미콜론으로 끝나는 것을 확인하세요.</p>
         </SUBSECTION>
-        <SUBSECTION title="Clarification: Semicolons and functions">
-          <p>Semicolons should be included at the end of function expressions,
-            but not at the end of function declarations. The distinction is
-            best illustrated with an example:</p>
+        <SUBSECTION title="세미콜론과 함수 명확화하기">
+          <p>세미콜론은 함수 표현식의 마지막에 포함되어야 하지만,
+            함수 선언문 마지막에는 포함이 되지 않아도 됩니다.
+            그 차이는 예제에 잘 설명되어 있습니다:
+          </p>
           <CODE_SNIPPET>
             var foo = function() {
             return true;
-            };  // semicolon here.
+            };  // 세미콜론 있음.
 
             function foo() {
             return true;
-            }  // no semicolon here.
+            }  // 세미콜론 없음.
           </CODE_SNIPPET>
         </SUBSECTION>
       </BODY>
     </STYLEPOINT>
 
-    <STYLEPOINT title="Nested functions">
-      <SUMMARY>Yes</SUMMARY>
+    <STYLEPOINT title="중첩된 함수">
+      <SUMMARY>예</SUMMARY>
       <BODY>
-        <p>Nested functions can be very useful, for example in the creation of
-          continuations and for the task of hiding helper functions. Feel free
-          to use them.</p>
+        <p>중첩된 함수는 연속적인 생성과 숨겨진 도움 함수의 태스크로
+          굉장히 유용하게 쓰일 수 있습니다. 활용하시길 바랍니다.</p>
       </BODY>
     </STYLEPOINT>
 
-    <STYLEPOINT title="Function Declarations Within Blocks">
-      <SUMMARY>No</SUMMARY>
+    <STYLEPOINT title="블록 안에서의 함수 선언식">
+      <SUMMARY>아니요</SUMMARY>
       <BODY>
-        <p>Do not do this:</p>
+        <p>이렇게 하지 마세요:</p>
         <BAD_CODE_SNIPPET>
           if (x) {
           function foo() {}
           }
         </BAD_CODE_SNIPPET>
 
-        <p>While most script engines support Function Declarations within blocks
-          it is not part of ECMAScript (see
-          <a href="http://www.ecma-international.org/publications/standards/Ecma-262.htm">ECMA-262</a>,
-          clause 13 and 14). Worse implementations are inconsistent with each
-          other and with future EcmaScript proposals. ECMAScript only allows for
-          Function Declarations in the root statement list of a script or
-          function. Instead use a variable initialized with a Function
-          Expression to define a function within a block:</p>
+        <p>대부분의 스크립트 엔진들이 블록 안에서의 함수 선언을 지원하는 반면에,
+          ECMAScript에서는 해당되지 않습니다(구절 13과 14의 <a href="http://www.ecma-international.org/publications/standards/Ecma-262.htm">ECMA-262</a>
+          확인). 좋지 않은 구현들은 서로에게도 맞지 않을 뿐더러 EcmaScript 제안과도 모순됩니다.
+          ECMAScript는 스크립트나 함수의 루트 구문 리스트에서 함수 선언식만을 허용합니다.
+          대신, 함수 표현식으로 정의된 함수로 초기화 된 변수를 사용해 주세요: 
+          </p>
         <CODE_SNIPPET>
           if (x) {
           var foo = function() {};
@@ -276,36 +272,32 @@
       </BODY>
     </STYLEPOINT>
 
-    <STYLEPOINT title="Exceptions">
-      <SUMMARY>Yes</SUMMARY>
+    <STYLEPOINT title="예외">
+      <SUMMARY>예</SUMMARY>
       <BODY>
-        <p>You basically can't avoid exceptions if you're doing something
-          non-trivial (using an application development framework, etc.).
-          Go for it.</p>
+        <p>만약 당신이 사소하지 않은 무언가를 한다면, 기본적으로 예외상황을 피할 수 없습니다.</p>
       </BODY>
     </STYLEPOINT>
 
-    <STYLEPOINT title="Custom exceptions">
-      <SUMMARY>Yes</SUMMARY>
+    <STYLEPOINT title="사용자 정의 예외">
+      <SUMMARY>예</SUMMARY>
       <BODY>
-        <p>Without custom exceptions, returning error information from a
-          function that also returns a value can be tricky, not to mention
-          inelegant.  Bad solutions include passing in a reference type to hold
-          error information or always returning Objects with a potential
-          error member.  These basically amount to a primitive exception
-          handling hack. Feel free to use custom exceptions when
-          appropriate.</p>
+        <p>사용자 정의 예외가 없는 경우, 함수로부터의 반환 에러 정보는 다루기 힘들 수 있고,
+          세련되지 못하다는 건 말할 것도 없습니다. 좋지 않은 해결책들은 에러 정보를 가진 참조 타입을
+          건너뛰거나 잠재적인 에러 유발인자가 있는 반환 객체를 항상 포함하고 있습니다.
+          이것들은 기본적으로 원시적인 예외처리 핵이 됩니다.
+          적절할 때, 사용자 정의 예외를 사용해 주세요.
+        </p>
       </BODY>
     </STYLEPOINT>
 
-    <STYLEPOINT title="Standards features">
-      <SUMMARY>Always preferred over non-standards features</SUMMARY>
+    <STYLEPOINT title="표준 특성">
+      <SUMMARY>항상 비표준 특성보다 표준 특성을 지향할 것</SUMMARY>
       <BODY>
-        <p>For maximum portability and compatibility, always prefer standards
-          features over non-standards features (e.g.,
-          <code>string.charAt(3)</code> over <code>string[3]</code> and element
-          access with DOM functions instead of using an application-specific
-          shorthand).</p>
+        <p>최대한의 이식성과 호환성을 위해 항상 비표준 특성보다 표준 특성을 지향하세요
+          (예를 들어, <code>string[3]</code> 보다는 <code>string.charAt(3)</code>의 사용,
+          특정한 어플리케이션 단축형을 사용하는 것 대신에 DOM 함수를 통한 요소 접근).
+          </p>
       </BODY>
     </STYLEPOINT>
 
