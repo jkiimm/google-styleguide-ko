@@ -49,7 +49,7 @@
 
     <STYLEPOINT title="var">
       <SUMMARY>
-        <code>항상 var</code>와 함께 선언
+        <code>항상 var</code>와 함께 선언할 것
       </SUMMARY>
       <BODY>
         <DECISION>
@@ -301,7 +301,7 @@
       </BODY>
     </STYLEPOINT>
 
-    <STYLEPOINT title="Wrapper objects for primitive types">
+    <STYLEPOINT title="원시 타입을 위한 객체 래퍼">
       <SUMMARY>No</SUMMARY>
       <BODY>
         <p>There's no reason to use wrapper objects for primitive types, plus
@@ -327,7 +327,7 @@
       </BODY>
     </STYLEPOINT>
 
-    <STYLEPOINT title="Multi-level prototype hierarchies">
+    <STYLEPOINT title="여러 단계의 프로토타입 계층">
       <SUMMARY>Not preferred</SUMMARY>
       <BODY>
         <p>Multi-level prototype hierarchies are how JavaScript implements
@@ -355,7 +355,7 @@
       </BODY>
     </STYLEPOINT>
 
-    <STYLEPOINT title="Method and property definitions">
+    <STYLEPOINT title="메소드와 특성 정의">
       <SUMMARY><code>/** @constructor */
           function SomeConstructor() {
           this.someProperty = 1;
@@ -410,7 +410,7 @@
       </BODY>
     </STYLEPOINT>
 
-    <STYLEPOINT title="Closures">
+    <STYLEPOINT title="클로져">
       <SUMMARY>Yes, but be careful.</SUMMARY>
       <BODY>
         <p>The ability to create closures is perhaps the most useful and often
@@ -526,7 +526,7 @@
       </BODY>
     </STYLEPOINT>
 
-    <STYLEPOINT title="for-in loop">
+    <STYLEPOINT title="for-in 반복문">
       <SUMMARY>
         Only for iterating over keys in an object/map/hash
       </SUMMARY>
@@ -571,7 +571,7 @@
       </BODY>
     </STYLEPOINT>
 
-    <STYLEPOINT title="Associative Arrays">
+    <STYLEPOINT title="결합 배열">
       <SUMMARY>
         Never use <code>Array</code> as a map/hash/associative array
       </SUMMARY>
@@ -587,7 +587,7 @@
       </BODY>
     </STYLEPOINT>
 
-    <STYLEPOINT title="Multiline string literals">
+    <STYLEPOINT title="여러 줄에 걸친 문자열 리터럴">
       <SUMMARY>No</SUMMARY>
       <BODY>
         <p>Do not do this:</p>
@@ -615,7 +615,7 @@
       </BODY>
     </STYLEPOINT>
 
-    <STYLEPOINT title="Array and Object literals">
+    <STYLEPOINT title="배열과 객체 리터럴">
       <SUMMARY>Yes</SUMMARY>
       <BODY>
         <p>Use <code>Array</code> and <code>Object</code> literals instead of
@@ -672,7 +672,7 @@
       </BODY>
     </STYLEPOINT>
 
-    <STYLEPOINT title="Modifying prototypes of builtin objects">
+    <STYLEPOINT title="내장 객체의 프로토타입 수정">
       <SUMMARY>No</SUMMARY>
       <BODY>
         <p>Modifying builtins like <code>Object.prototype</code> and
@@ -683,7 +683,7 @@
       </BODY>
     </STYLEPOINT>
 
-    <STYLEPOINT title="Internet Explorer's Conditional Comments">
+    <STYLEPOINT title="Internet Explorer 조건 주석">
       <SUMMARY>No</SUMMARY>
       <BODY>
         <p>Don't do this:</p>
@@ -698,8 +698,8 @@
     </STYLEPOINT>
   </CATEGORY>
 
-  <CATEGORY title="JavaScript Style Rules">
-    <STYLEPOINT title="Naming">
+  <CATEGORY title="JavaScript 스타일 규칙">
+    <STYLEPOINT title="이름 짓기">
       <SUMMARY>
         <p>In general, use
           <code>functionNamesLikeThis</code>,
@@ -713,7 +713,7 @@
         </p>
       </SUMMARY>
       <BODY>
-        <SUBSECTION title="Properties and methods">
+        <SUBSECTION title="특성과 메소드">
           <ul>
             <li><em>Private</em> properties and methods should be named with a
               trailing underscore.
@@ -732,7 +732,7 @@
 
         </SUBSECTION>
 
-        <SUBSECTION title="Method and function parameter">
+        <SUBSECTION title="메소드와 함수 매개변수">
           <p>Optional function arguments start with <code>opt_</code>.</p>
           <p>Functions that take a variable number of arguments should have the
             last argument named <code>var_args</code>. You may not refer to
@@ -744,7 +744,7 @@
 
         </SUBSECTION>
 
-        <SUBSECTION title="Getters and Setters">
+        <SUBSECTION title="Getter와 Setter">
           <p>EcmaScript 5 getters and setters for properties are discouraged.
             However, if they are used, then getters must not change observable
             state.</p>
@@ -756,7 +756,7 @@
           </BAD_CODE_SNIPPET>
         </SUBSECTION>
 
-        <SUBSECTION title="Accessor functions">
+        <SUBSECTION title="함수 접근자">
           <p>Getters and setters methods for properties are not required.
             However, if they are used, then getters must be named
             <code>getFoo()</code> and setters must be named
@@ -765,13 +765,13 @@
             natural.)</p>
         </SUBSECTION>
 
-        <SUBSECTION title="Namespaces">
+        <SUBSECTION title="네임스페이스">
           <p>JavaScript has no inherent packaging or namespacing support.</p>
           <p>Global name conflicts are difficult to debug, and can cause
             intractable problems when two projects try to integrate. In order
             to make it possible to share common JavaScript code, we've adopted
             conventions to prevent collisions. </p>
-          <SUBSUBSECTION title="Use namespaces for global code">
+          <SUBSUBSECTION title="전역 코드를 위해 네임스페이스를 사용할 것">
             <p><em>ALWAYS</em> prefix identifiers in the global scope with a
               unique pseudo namespace related to the project or library. If you
               are working on "Project Sloth", a reasonable pseudo namespace
@@ -803,14 +803,14 @@
               };
             </CODE_SNIPPET>
           </SUBSUBSECTION>
-          <SUBSUBSECTION title="Respect namespace ownership">
+          <SUBSUBSECTION title="네임스페이스에 대한 소유권을 존중할 것">
             <p>When choosing a child-namespace, make sure that the owners of the
               parent namespace know what you are doing. If you start a project
               that creates hats for sloths, make sure that the Sloth team knows
               that you're using <code>sloth.hats</code>.</p>
 
           </SUBSUBSECTION>
-          <SUBSUBSECTION title="Use different namespaces for external code and internal code">
+          <SUBSUBSECTION title="외부 코드와 내부 코드를 위해 다른 네임스페이스를 사용할 것">
             <p>"External code" is code that comes from outside your codebase,
               and is compiled independently. Internal and external names should
               be kept strictly separate. If you're using an external library
@@ -852,7 +852,7 @@
 
 
           </SUBSUBSECTION>
-          <SUBSUBSECTION title="Alias long type names to improve readability">
+          <SUBSUBSECTION title="가독성을 향상시키기 위해 긴 타입의 이름은 alias 할 것">
             <p>Use local aliases for fully-qualified types if doing so improves
               readability. The name of a local alias should match the last part
               of the type.</p>
@@ -913,7 +913,7 @@
               function blocks.</p>
           </SUBSUBSECTION>
         </SUBSECTION>
-        <SUBSECTION title="Filenames">
+        <SUBSECTION title="파일 이름">
           <p>Filenames should be all lowercase in order to avoid confusion on
             case-sensitive platforms. Filenames should end in <code>.js</code>,
             and should contain no punctuation except for <code>-</code> or
@@ -923,7 +923,7 @@
       </BODY>
     </STYLEPOINT>
 
-    <STYLEPOINT title="Custom toString() methods">
+    <STYLEPOINT title="사용자 정의 toString() 메소드">
       <SUMMARY>
         Must always succeed without side effects.
       </SUMMARY>
@@ -940,7 +940,7 @@
       </BODY>
     </STYLEPOINT>
 
-    <STYLEPOINT title="Deferred initialization">
+    <STYLEPOINT title="늦춰진 초기화">
       <SUMMARY>OK</SUMMARY>
       <BODY>
         <p>It isn't always possible to initialize variables at the point of
@@ -948,7 +948,7 @@
       </BODY>
     </STYLEPOINT>
 
-    <STYLEPOINT title="Explicit scope">
+    <STYLEPOINT title="명시적 스코프">
       <SUMMARY>Always</SUMMARY>
       <BODY>
         <p>Always use explicit scope - doing so increases portability and
@@ -959,7 +959,7 @@
       </BODY>
     </STYLEPOINT>
 
-    <STYLEPOINT title="Code formatting">
+    <STYLEPOINT title="코드 형식">
       <SUMMARY>Expand for more information.</SUMMARY>
       <BODY>
         <p>We follow the <a href="cppguide.xml#Formatting">C++ formatting
@@ -976,7 +976,7 @@
             }
           </CODE_SNIPPET>
         </SUBSECTION>
-        <SUBSECTION title="Array and Object Initializers">
+        <SUBSECTION title="배열과 객체 초기자">
           <p>Single-line array and object initializers are allowed when they
             fit on a line:</p>
           <CODE_SNIPPET>
@@ -1030,7 +1030,7 @@
             };
           </BAD_CODE_SNIPPET>
         </SUBSECTION>
-        <SUBSECTION title="Function Arguments">
+        <SUBSECTION title="함수 인자">
           <p>When possible, all function arguments should be listed on the same
             line. If doing so would exceed the 80-column limit, the arguments
             must be line-wrapped in a readable way. To save space, you may wrap
@@ -1088,7 +1088,7 @@
             }
           </CODE_SNIPPET>
         </SUBSECTION>
-        <SUBSECTION title="Passing Anonymous Functions">
+        <SUBSECTION title="익명 함수 띄어쓰기">
           <p>When declaring an anonymous function in the list of arguments for
             a function call, the body of the function is indented two spaces
             from the left edge of the statement, or two spaces from the left
@@ -1111,7 +1111,7 @@
             });
           </CODE_SNIPPET>
         </SUBSECTION>
-        <SUBSECTION title="Aliasing with goog.scope">
+        <SUBSECTION title="goog.scope를 이용한 aliasing">
           <a name="goog-scope"/>
           <p>
             <a href="https://docs.google.com/document/pub?id=1ETFAuh2kaXMVL-vafUYhaWlhl6b5D9TOvboVg7Zl68Y"><code>goog.scope</code></a>
@@ -1168,7 +1168,7 @@
             });  // goog.scope
           </CODE_SNIPPET>
         </SUBSECTION>
-        <SUBSECTION title="Indenting wrapped lines">
+        <SUBSECTION title="감싸진 줄 들여쓰기">
           <p>Except for <a href="#Array_and_Object_literals">array literals,
               object literals</a>, and anonymous functions, all wrapped lines
             should be indented either left-aligned to a sibling expression
@@ -1208,7 +1208,7 @@
             }
           </CODE_SNIPPET>
         </SUBSECTION>
-        <SUBSECTION title="Blank lines">
+        <SUBSECTION title="공백 줄">
           <p>Use newlines to group logically related pieces of code.
             For example:</p>
           <CODE_SNIPPET>
@@ -1221,7 +1221,7 @@
             andNowWith(z);
           </CODE_SNIPPET>
         </SUBSECTION>
-        <SUBSECTION title="Binary and Ternary Operators">
+        <SUBSECTION title="이항과 삼항 연산자">
           <p>Always put the operator on the preceding line. Otherwise,
             line breaks and indentation follow the same rules as in other
             Google style guides. This operator placement was initially agreed
@@ -1250,7 +1250,7 @@
       </BODY>
     </STYLEPOINT>
 
-    <STYLEPOINT title="Parentheses">
+    <STYLEPOINT title="괄호">
       <SUMMARY>Only where required</SUMMARY>
       <BODY>
         <p>Use sparingly and in general only where required by the syntax
@@ -1263,7 +1263,7 @@
       </BODY>
     </STYLEPOINT>
 
-    <STYLEPOINT title="Strings">
+    <STYLEPOINT title="문자열">
       <SUMMARY>Prefer ' over "</SUMMARY>
       <BODY>
         <p>For consistency single-quotes (') are preferred to double-quotes (").
@@ -1274,7 +1274,7 @@
       </BODY>
     </STYLEPOINT>
 
-    <STYLEPOINT title="Visibility (private and protected fields)">
+    <STYLEPOINT title="가시성 (private와 protected 지역)">
       <SUMMARY>Encouraged, use JSDoc annotations <code>@private</code> and
         <code>@protected</code></SUMMARY>
       <BODY>
@@ -1390,7 +1390,7 @@
       </BODY>
     </STYLEPOINT>
 
-    <STYLEPOINT title="JavaScript Types">
+    <STYLEPOINT title="JavaScript 타입">
       <SUMMARY>Encouraged and enforced by the compiler.</SUMMARY>
       <BODY>
         <a name="JsTypes"/>
@@ -1398,7 +1398,7 @@
           possible. The types we support are based on the
           <a href="http://wiki.ecmascript.org/doku.php?id=spec:spec">
             EcmaScript 4 spec</a>.</p>
-        <SUBSECTION title="The JavaScript Type Language">
+        <SUBSECTION title="JavaScript 타입 언어">
           <p>The ES4 proposal contained a language for specifying JavaScript
             types. We use this language in JsDoc to express the types of
             function parameters and return values.</p>
@@ -1670,7 +1670,7 @@
             </tbody>
           </table>
         </SUBSECTION>
-        <SUBSECTION title="Types in JavaScript">
+        <SUBSECTION title="JavaScript 안에서의 타입">
           <p/>
           <table border="1" style="border-collapse:collapse" cellpadding="4">
             <thead>
@@ -2020,7 +2020,7 @@
           </table>
         </SUBSECTION>
 
-        <SUBSECTION title="Type Casts">
+        <SUBSECTION title="타입 캐스트">
           <p>In cases where type-checking doesn't accurately infer the type of
             an expression, it is possible to add a type cast comment by adding a
             type annotation comment and enclosing the expression in
@@ -2166,7 +2166,7 @@
           </CODE_SNIPPET>
         </SUBSECTION>
 
-        <SUBSECTION title="Template types">
+        <SUBSECTION title="템플릿 타입">
           <a name="Template_types"/>
           <p>The compiler has limited support for template types. It can only
             infer the type of <code>this</code> inside an anonymous function
@@ -2192,7 +2192,7 @@
       </BODY>
     </STYLEPOINT>
 
-    <STYLEPOINT title="Comments">
+    <STYLEPOINT title="주석">
       <SUMMARY>Use JSDoc</SUMMARY>
       <BODY>
         <p>
@@ -2215,7 +2215,7 @@
           Complete sentences should use appropriate capitalization
           and punctuation.</p>
 
-        <SUBSECTION title="Comment Syntax">
+        <SUBSECTION title="주석 구문">
           <p>The JSDoc syntax is based on
             <a href="http://www.oracle.com/technetwork/java/javase/documentation/index-137868.html">
               JavaDoc</a>. Many tools extract metadata from JSDoc comments to
@@ -2231,7 +2231,7 @@
           </CODE_SNIPPET>
         </SUBSECTION>
 
-        <SUBSECTION title="JSDoc Indentation">
+        <SUBSECTION title="JSDoc 들여쓰기">
           <p>If you have to line break a block tag, you should treat this as
             breaking a code statement and indent it four spaces.</p>
 
@@ -2268,7 +2268,7 @@
           </CODE_SNIPPET>
         </SUBSECTION>
 
-        <SUBSECTION title="HTML in JSDoc">
+        <SUBSECTION title="JSDoc에서의 HTML">
           <p>Like JavaDoc, JSDoc supports many HTML tags, like &lt;code&gt;,
             &lt;pre&gt;, &lt;tt&gt;, &lt;strong&gt;, &lt;ul&gt;, &lt;ol&gt;,
             &lt;li&gt;, &lt;a&gt;, and others.</p>
@@ -2309,7 +2309,7 @@
           well-formed doc comments.
         </SUBSECTION>
 
-        <SUBSECTION title="Top/File-Level Comments">
+        <SUBSECTION title="상단/파일수준 주석">
           <p>
 
             A <a href="copyright.html">copyright notice</a> and author information are optional.
@@ -2331,7 +2331,7 @@
 
         </SUBSECTION>
 
-        <SUBSECTION title="Class Comments">
+        <SUBSECTION title="클래스 주석">
           <p>Classes must be documented with a description and a
             <a href="#constructor-tag">type tag that
               identifies the constructor</a>.
@@ -2352,7 +2352,7 @@
           </CODE_SNIPPET>
         </SUBSECTION>
 
-        <SUBSECTION title="Method and Function Comments">
+        <SUBSECTION title="메소드와 함수 주석">
           <p>Parameter and return types should be documented. The method
             description may be omitted if it is obvious from the parameter
             or return type descriptions. Method descriptions should start
@@ -2370,7 +2370,7 @@
           </CODE_SNIPPET>
         </SUBSECTION>
 
-        <SUBSECTION title="Property Comments">
+        <SUBSECTION title="특성 주석">
           <CODE_SNIPPET>
             /** @constructor */
             project.MyClass = function() {
@@ -2383,7 +2383,7 @@
           </CODE_SNIPPET>
         </SUBSECTION>
 
-        <SUBSECTION title="JSDoc Tag Reference">
+        <SUBSECTION title="JSDoc 태그 레퍼런스">
           <a name="JSDoc_Tag_Reference"/>
           <p/>
           <table border="1" style="border-collapse:collapse" cellpadding="4">
@@ -3365,7 +3365,7 @@
       </BODY>
     </STYLEPOINT>
 
-    <STYLEPOINT title="Compiling">
+    <STYLEPOINT title="컴파일링">
       <SUMMARY>Required</SUMMARY>
       <BODY>
 
@@ -3380,7 +3380,7 @@
       </BODY>
     </STYLEPOINT>
 
-    <STYLEPOINT title="Tips and Tricks">
+    <STYLEPOINT title="팁과 트릭">
       <SUMMARY>JavaScript tidbits</SUMMARY>
       <BODY>
         <SUBSECTION title="True and False Boolean Expressions">
@@ -3447,7 +3447,7 @@
           </ul>
         </SUBSECTION>
 
-        <SUBSECTION title="Conditional (Ternary) Operator (?:)">
+        <SUBSECTION title="조건 (삼항) 연산자 (?:)">
           <p>Instead of this:</p>
           <CODE_SNIPPET>
             if (val) {
@@ -3470,7 +3470,7 @@
           </CODE_SNIPPET>
         </SUBSECTION>
 
-        <SUBSECTION title="&amp;&amp; and ||">
+        <SUBSECTION title="&amp;&amp;와 ||">
           <p>These binary boolean operators are short-circuited, and evaluate
             to the last evaluated term.</p>
 
@@ -3594,7 +3594,7 @@
   </PARTING_WORDS>
 
   <p align="right">
-    Revision 2.93
+    개정 2.93
   </p>
 
 
