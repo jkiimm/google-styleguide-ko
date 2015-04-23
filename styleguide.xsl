@@ -176,11 +176,11 @@ xmlns:fn="http://www.w3.org/2005/xpath-functions">
     </xsl:variable>
     <DIV style="margin-left: 50%; font-size: 75%;">
       <P>
-        Each style point has a summary for which additional information is available
-        by toggling the accompanying arrow button that looks this way:
+        각 스타일 사항에는 동반되어 있는 화살표 버튼이 토글됨에 따라
+        부가적인 정보를 나타내주는 개요가 있습니다. 버튼은 이런 모습입니다:
         <SPAN class="showhide_button" style="margin-left: 0; float: none">
           <xsl:value-of select="$show_button_text"/></SPAN>.
-        You may toggle all summaries with the big arrow button:
+        당신은 큰 화살표 버튼으로 모든 개요를 토글할 수 있습니다:
       </P>
       <DIV style=" font-size: larger; margin-left: +2em;">
         <SPAN class="showhide_button" style="font-size: 180%; float: none">
@@ -189,7 +189,7 @@ xmlns:fn="http://www.w3.org/2005/xpath-functions">
           <xsl:attribute name="id"><xsl:value-of select="$show_hide_all_button"/></xsl:attribute>
           <xsl:value-of select="$button_text"/>
         </SPAN>
-        Toggle all summaries
+        모든 개요 토글
       </DIV>
     </DIV>
     <xsl:call-template name="TOC">
@@ -199,7 +199,7 @@ xmlns:fn="http://www.w3.org/2005/xpath-functions">
   </xsl:template>
 
   <xsl:template match="PARTING_WORDS">
-    <H2>Parting Words</H2>
+    <H2>작별 인사</H2>
     <xsl:apply-templates/>
   </xsl:template>
 
@@ -433,7 +433,7 @@ xmlns:fn="http://www.w3.org/2005/xpath-functions">
   <xsl:template name="TOC">
     <xsl:param name="root"/>
     <DIV class="toc">
-      <DIV class="toc_title">Table of Contents</DIV>
+      <DIV class="toc_title">목차</DIV>
       <TABLE>
       <xsl:for-each select="$root/CATEGORY">
         <TR valign="top">
